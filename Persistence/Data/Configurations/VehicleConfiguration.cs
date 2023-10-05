@@ -6,7 +6,7 @@ namespace Persistence.Data.Configurations;
 public class VehicleConfiguration : IEntityTypeConfiguration<Vehicle>
 {
     public void Configure(EntityTypeBuilder<Vehicle> builder){
-        builder.ToTable("Vehicle");
+        builder.ToTable("Vehicles");
 
         builder.Property(v => v.Model).IsRequired();
         builder.Property(v => v.Year).IsRequired();
