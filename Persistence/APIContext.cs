@@ -21,7 +21,9 @@ namespace Persistence;
 
 
 public class APIContext : DbContext 
-{
+{   
+    public APIContext(DbContextOptions options): base (options){}
+
     /* Incluyendo las entidades */
     public DbSet<User> Users {get; set;}
     public DbSet<Vehicle> Vehicles {get; set;}
@@ -30,8 +32,7 @@ public class APIContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-
-        /* Aplicando las configuraciones antes definidas */
+        
         modelBuilder.ApplyConfiguration(new UserConfiguration());
         modelBuilder.ApplyConfiguration(new VehicleConfiguration());
     }
