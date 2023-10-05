@@ -4,10 +4,10 @@ using Domain.Entities;
 
 namespace Persistence.Data.Configurations;
 
-public class UserConfigurations : IEntityTypeConfiguration<User>
+public class UserConfiguration : IEntityTypeConfiguration<User>
 {
     public void Configure(EntityTypeBuilder<User> builder){
-        builder.ToTable("User");
+        builder.ToTable("Users");
 
         builder.Property(u => u.Username).IsRequired().HasMaxLength(50);
         builder.Property(u => u.Password).IsRequired();
