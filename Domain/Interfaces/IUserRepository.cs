@@ -5,5 +5,5 @@ namespace Domain.Interfaces;
 
 public interface IUserRepository : IGenericRepository<User>
 {
-    IEnumerable<User> GetAllUsers();
+    
 }

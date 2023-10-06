@@ -4,6 +4,6 @@ namespace Domain.Interfaces;
 public interface IUnitOfWork
 {
     IUserRepository Users {get; }
-    IUserRepository Vehicles {get; }
+    IVehicleRepository Vehicles {get; }
     Task<int> SaveAsync();
 }
