@@ -6,3 +6,6 @@ Domain/bin/
 Domain/obj/
 Persistence/bin/
 Persistence/obj/
+API/obj/Debug/net7.0/API.csproj.AssemblyReference.cache
+Application/obj/Debug/net7.0/Application.csproj.AssemblyReference.cache
+Persistence/obj/Debug/net7.0/Persistence.csproj.AssemblyReference.cache
