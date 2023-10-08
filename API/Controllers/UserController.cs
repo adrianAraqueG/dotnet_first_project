@@ -1,6 +1,7 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
 using API.Dtos;
+using API.Helpers;
 using Domain.Interfaces;
 using AutoMapper;
 
@@ -16,20 +17,20 @@ public class UserController : ApiBaseController
     }
 
     [HttpGet("list/basic")]
-    public async Task<ActionResult> GetUsersBasic(){
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<BasicUserDto>>> GetUsersBasic(){
         var users = await _unitOfWork.Users.GetAllAsync();
-
-        var usersMapped = _mapper.Map<IEnumerable<BasicUserDto>>(users);
         
-        return Ok(usersMapped);
+        return _mapper.Map<List<BasicUserDto>>(users);
     }
 
     [HttpGet("list/all")]
-    public async Task<ActionResult> GetUsersAll(){
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<UserDto>>> GetUsersAll(){
         var users = await _unitOfWork.Users.GetAllUsers();
-
-        var usersMapped = _mapper.Map<IEnumerable<UserDto>>(users);
         
-        return Ok(usersMapped);
+        return _mapper.Map<List<UserDto>>(users);
     }
 }
