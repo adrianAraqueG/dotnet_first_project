@@ -10,4 +10,10 @@ public class UserRepository : GenericRepository<User>, IUserRepository
     public UserRepository(APIContext context): base(context){
         _context = context;
     }
+
+    public async Task<IEnumerable<User>> GetAllUsers(){
+        return await _context.Set<User>()
+                            .Include("Vehicles")
+                            .ToListAsync();
+    }
 }
